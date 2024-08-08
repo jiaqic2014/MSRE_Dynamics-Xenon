@@ -1,5 +1,6 @@
 # MSRE_Dynamics-Xenon
-The repo for the coupled model of MSRE. Refer to 10.1016/j.anucene.2024.110705 and 10.1016/j.anucene.2024.110525 for general information on the model structure. 
+The repo for the coupled model of MSRE. 
+Refer to 10.1016/j.anucene.2024.110705 and 10.1016/j.anucene.2024.110525 for general information on the model structure. 
 
 Usage:
 1. Run the initialization *.mlx file for the desired fuel type. Change the parameters if needed.
