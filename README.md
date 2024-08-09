@@ -10,3 +10,4 @@ Usage:
 
 Note:
 Only one version of the model is uploaded to avoid confusion, which is setup for frequency analysis. Other types of usage can be easily setup by slightly changing the model.
+If unable to open the model, update MATLAB to the latest version. 
