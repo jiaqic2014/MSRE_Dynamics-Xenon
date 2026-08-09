@@ -1,0 +1,34 @@
+component TL_FullSensor
+% Thermodynamic Properties Sensor (TL)
+% This block measures thermodynamic fluid states in a thermal liquid
+% network. There is no mass or energy flow through the sensor.
+%
+% The physical signal ports u [kJ/kg], rho [kg/m^3], nu [m^2/s] and cp [kJ/(kg*K)]
+% report the specific internal energy, density, and specific heat at
+% constant pressure, respectively, measured at port A.
+
+% Copyright 2013-2019 The MathWorks, Inc.
+
+nodes
+    A = foundation.thermal_liquid.thermal_liquid; % A:left
+end
+
+outputs
+    % Specific internal energy at port A
+    U   = {85,   'kJ/kg'    }; % u:right
+    % Density at port A
+    RHO = {1000, 'kg/m^3'   }; % rho:right
+    % Specific heat at constant pressure at port A
+    CP  = {4,    'kJ/(kg*K)'}; % cp:right
+    % Kinematic viscosity
+    NU = {1e-6, 'm^2/s'}; % nu:right
+end
+
+equations
+    U   == tablelookup(A.T_TLU, A.p_TLU, A.u_TLU,   A.T, A.p, interpolation = linear, extrapolation = nearest);
+    RHO == tablelookup(A.T_TLU, A.p_TLU, A.rho_TLU, A.T, A.p, interpolation = linear, extrapolation = nearest);
+    CP  == tablelookup(A.T_TLU, A.p_TLU, A.cp_TLU,  A.T, A.p, interpolation = linear, extrapolation = nearest);
+    NU  == tablelookup(A.T_TLU, A.p_TLU, A.nu_TLU,  A.T, A.p, interpolation = linear, extrapolation = nearest);
+end
+
+end
